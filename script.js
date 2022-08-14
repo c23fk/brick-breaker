@@ -22,8 +22,8 @@ function draw(){
 }
 
 function drawLines(){
-    for(let wall of getAllWalls()){
-        wall.draw();
+    for(let i = 0; i< getAllWalls().length; i++){
+        getAllWalls()[i].draw()
     }
 }
 

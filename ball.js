@@ -4,7 +4,7 @@ class ball {
         this.x = x;
         this.y = y;
         this.bounces = 0;
-        this.radius = width/50;
+        this.radius = min(width,height)/50;
         this.velocity = {
             speed: 5,
             angle: angle == null?random(30,150):angle
@@ -51,23 +51,13 @@ class ball {
             this.x = possx2
             this.y = possy2
         }
-        
-        fill("orange")
-        circle(possx1,possy1,10)
-        circle(possx2,possy2,10)
     }
 
     checkWalls(bouncables){
         for(let i of bouncables){
             if(this.wallCollision(i)){
-                i.hit(this);
-                //console.log("bounce")
-            }
-        }
-        for(let i of bouncables){
-            if(this.wallCollision(i)){
                 this.bounce(i)
-                //console.log("bounce")
+                i.hit(this);
             }
         }
         this.bounces++;

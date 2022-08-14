@@ -5,57 +5,48 @@ class slider{
     this.height = height/20,
     this.length = width/7.5,
     this.edges = []
-    this.speed = 0
+    this.color = "orange"
     }
 
     input(){
         if(keyIsDown(LEFT_ARROW)){
-            this.speed -=  this.speed>1?0.35: 0.25;
+            this.x -=  .5
         }
         if(keyIsDown(RIGHT_ARROW)){
-            this.speed +=  this.speed<-1?0.35: 0.25;
+            this.x += .5;
         }
-        if(this.speed > 10){
-            this.speed = 10
-        }
-        if(this.speed < -10){
-            this.speed = -10
-        }
-        //console.log(this.speed)
-    }
-    move(){
-        this.x += this.speed
         if(this.x < this.length/2){
             this.x = this.length/2;
-            this.speed = 0
         }
         if(this.x > width - this.length/2){
             this.x = width - this.length/2;
-            this.speed = 0
         }
     }
     draw(){
-        fill(0,0,255,100);
+        fill(this.color);
         quad(this.x-this.length/4, this.y-this.height/2, this.x+this.length/4, this.y-this.height/2, this.x+this.length/2, this.y+this.height/2, this.x-this.length/2, this.y+this.height/2)
     }
 
     updateEdges(){
-        let slider_edge_color = "blue";
         this.edges = [
-            new wall(this.x - this.length/4, this.y - this.height/2, this.x + this.length/4, this.y - this.height/2, slider_edge_color, this),
-            new wall(this.x - this.length/2, this.y + this.height/2 , this.x - this.length/4, this.y - this.height/2, slider_edge_color, this),
-            new wall(this.x + this.length/2, this.y + this.height/2, this.x + this.length/4, this.y - this.height/2, slider_edge_color, this),
+            new wall(this.x - this.length/4, this.y - this.height/2, this.x + this.length/4, this.y - this.height/2, this.color, this),
+            new wall(this.x - this.length/2, this.y + this.height/2 , this.x - this.length/4, this.y - this.height/2, this.color, this),
+            new wall(this.x + this.length/2, this.y + this.height/2, this.x + this.length/4, this.y - this.height/2, this.color, this),
+            new wall(this.x + this.length/2, this.y + this.height/2, this.x - this.length/2, this.y + this.height/2 , this.color, this),
         ]
     }
 
     run(){
-        this.input()
-        this.move()
-        this.updateEdges()
-        this.draw()
+        for(let i = 0; i<15; i++){
+            this.input()
+            this.updateEdges()
+            this.draw()
+        }
     }
     
-    hit(){
-        //this.speed =0
+    hit(ball){
+        if(ball.velocity.angle<180 && ball.velocity.angle>0){
+            ball.velocity.angle = -ball.velocity.angle;
+        }
     }
 }

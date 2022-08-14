@@ -18,17 +18,12 @@ class wall {
                 this.y2 = y1;
             }
         }
-        if(color == undefined){
-            this.color = "white"
-        }else{
-            this.color = color;
-        }
-        this.parent = parent
+        this.color = color;
+        this.parent = parent;
     }
 
     draw(){
         stroke(this.color);
-        fill(this.color);
         line(this.x1,this.y1,this.x2,this.y2);
     }
 
