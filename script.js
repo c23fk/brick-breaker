@@ -6,6 +6,7 @@ var bricks = [];
 
 function setup(){
     angleMode(DEGREES);
+    rectMode(CENTER);
     createCanvas(windowWidth,windowHeight);
     paddle = new slider()
     start();

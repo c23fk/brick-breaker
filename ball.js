@@ -35,11 +35,10 @@ class ball {
     }
 
     nudge(other){
-        let hyp = new wall(this.x,this.y,other.x1,other.y1);
-        let angle = hyp.getAngle() - other.getAngle();
-        let di = cos(angle) * hyp.getLength();
-        let projX = other.x1 + (cos(other.getAngle()) * di * Math.abs(this.y - other.y1)/(this.y - other.y1))
-        let projY = other.y1 - (sin(other.getAngle()) * di * -Math.abs(this.x - other.x1)/(this.x - other.x1))
+        let len = dist(other.x1,other.y1,other.x2,other.y2);
+        let dot = (((this.x-other.x1) * (other.x2-other.x1)) + ((this.y-other.y1) * (other.y2-other.y1)))/(len*len);
+        let projX = other.x1 + (dot * (other.x2-other.x1));
+        let projY = other.y1 + (dot * (other.y2-other.y1));
         let perpAngle = other.getAngle() + 90
         let possx1 = projX + cos(perpAngle)*(this.radius + 0.1);
         let possx2 = projX - cos(perpAngle)*(this.radius + 0.1);
@@ -52,7 +51,7 @@ class ball {
             this.x = possx2
             this.y = possy2
         }
-        frameRate(0)
+        
         fill("orange")
         circle(possx1,possy1,10)
         circle(possx2,possy2,10)
