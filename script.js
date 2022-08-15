@@ -15,7 +15,9 @@ function setup(){
 function draw(){
     background(0);
     noStroke();
+    for(let i = 0; i < 15; i++){
     paddle.run();
+    }
     runBalls();
     drawLines();
     drawBricks();
@@ -70,7 +72,7 @@ function generateBorder(){
 
 function start(){
     generateBorder();
-    createBricks(3);
+    createBricks(5);
     balls[0] = new ball(width/2,height/2);
 }
 
@@ -83,7 +85,7 @@ function drawBricks(){
 function createBricks(n){
     for(let i = 0; i<n; i++){
         for(let j = 0; j<10; j++){
-            bricks.push(new brick(j*width/10 + width/20 , i*(height/(3*n)) + height/(6*n) ,width/10,height/(3*n),color(random(255),random(255),random(255))))
+            bricks.push(new brick(j*width/10 + width/20 , (i+0.5)*(height/12),width/10,height/12, 1,color(random(255),random(255),random(255))))
         }
     }
 }

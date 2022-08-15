@@ -1,11 +1,11 @@
 class brick {
-    constructor(x,y,width,height,color){
+    constructor(x,y,width,height,hits,color){
         this.x = x
         this.y = y
         this.width = width
         this.height = height
         this.color = color
-        this.hits = 3
+        this.hits = hits
         this.lastBounce = null;
         this.edges = [
             new wall(x - width/2, y - height/2, x + width/2, y - height/2, this.color, this),

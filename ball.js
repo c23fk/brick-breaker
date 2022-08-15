@@ -6,13 +6,13 @@ class ball {
         this.bounces = 0;
         this.radius = min(width,height)/50;
         this.velocity = {
-            speed: 5,
+            speed: 7.5,
             angle: angle == null?random(30,150):angle
         }
     }
 
     move(bouncables){
-        let moves_per_call = 10 * this.velocity.speed;
+        let moves_per_call = this.velocity.speed;
         for(let i = 0; i<moves_per_call; i++){
             this.x += this.velocity.speed/moves_per_call * cos(this.velocity.angle);
             this.y += this.velocity.speed/moves_per_call * sin(this.velocity.angle);

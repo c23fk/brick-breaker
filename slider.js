@@ -10,10 +10,10 @@ class slider{
 
     input(){
         if(keyIsDown(LEFT_ARROW)){
-            this.x -=  .5
+            this.x -=  .75
         }
         if(keyIsDown(RIGHT_ARROW)){
-            this.x += .5;
+            this.x += .75;
         }
         if(this.x < this.length/2){
             this.x = this.length/2;
@@ -37,16 +37,12 @@ class slider{
     }
 
     run(){
-        for(let i = 0; i<15; i++){
-            this.input()
-            this.updateEdges()
-            this.draw()
-        }
+        this.input()
+        this.updateEdges()
+        this.draw()
     }
     
     hit(ball){
-        if(ball.velocity.angle<180 && ball.velocity.angle>0){
-            ball.velocity.angle = -ball.velocity.angle;
-        }
+
     }
 }
