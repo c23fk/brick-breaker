@@ -4,7 +4,7 @@ class ball {
         this.x = x;
         this.y = y;
         this.bounces = 0;
-        this.radius = min(width,height)/50;
+        this.radius = 7.5;
         this.velocity = {
             speed: 7.5,
             angle: angle == null?random(30,150):angle
@@ -12,7 +12,7 @@ class ball {
     }
 
     move(bouncables){
-        let moves_per_call = this.velocity.speed;
+        let moves_per_call = 5 * this.velocity.speed;
         for(let i = 0; i<moves_per_call; i++){
             this.x += this.velocity.speed/moves_per_call * cos(this.velocity.angle);
             this.y += this.velocity.speed/moves_per_call * sin(this.velocity.angle);
@@ -63,6 +63,14 @@ class ball {
         this.bounces++;
     }
 
+    checkSlider(slider){
+        for(let i of slider.edges.concat(walls)){
+            if(this.wallCollision(i)){
+                this.bounce(i)
+                i.hit(this);
+            }
+        }
+    }
 
 }
 

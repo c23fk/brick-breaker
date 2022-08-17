@@ -20,6 +20,7 @@ function draw(){
     runBalls();
     drawLines();
     drawBricks();
+    balls.push(new ball(width/2,height/2,90))
 }
 
 function drawLines(){
@@ -72,7 +73,7 @@ function generateBorder(){
 function start(){
     generateBorder();
     createBricks();
-    balls[0] = new ball(width/2,height/2,225);
+    balls[0] = new ball(width/2,height/2,80);
 }
 
 function drawBricks(){
@@ -82,5 +83,5 @@ function drawBricks(){
 }
 
 function createBricks(){
-    bricks[0] = new brick(50,50,100,100,color(255,0,0,50));
+    bricks[0] = new brick(width/2,613,100,100, 500, color(255,0,0,50));
 }

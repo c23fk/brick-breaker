@@ -37,8 +37,6 @@ function runBalls(){
     }
 }
 
-
-
 function getAllWalls(){
     let output = walls;
     output = output.concat(paddle.edges)
@@ -85,7 +83,7 @@ function drawBricks(){
 function createBricks(n){
     for(let i = 0; i<n; i++){
         for(let j = 0; j<10; j++){
-            bricks.push(new brick(j*width/10 + width/20 , (i+0.5)*(height/12),width/10,height/12, 1,color(random(255),random(255),random(255))))
+            bricks.push(new brick(j*width/10 + width/20 , (i+0.5)*(height/12),width/15,height/12, n - i ,color(random(255),random(255),random(255))))
         }
     }
 }

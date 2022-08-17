@@ -27,7 +27,12 @@ class brick {
         if(ball.bounces == this.lastBounce) return;
         this.hits = this.hits-1;
         if(this.hits <= 0){
-            bricks.splice(bricks.indexOf(this),1);
+            let ind = bricks.indexOf(this);
+            if (ind == -1) {
+                print("AHHHHHHH")
+                return
+            };
+            bricks.splice(ind,1);
             if(bricks.length == 0){
                 win()
             }
