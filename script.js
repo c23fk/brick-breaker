@@ -97,28 +97,13 @@ function win(){
     bricks = []
     let rad = min(width, height)/20
     for(let i = 3; i < 6; i++){
-        for(let j = 0; j<4; j++){
-            let ready = true
-            let newx,newy
-            do{
-                newx = random(rad,width-rad)
-                newy = random(rad,height-rad)
-                for(let i of bricks){
-                    if(dist(newx,newy,i.x,i.y)<2*rad){
-                        ready = false
-                        break;
-                    }else{
-                        ready = true
-                    }
-                }
-                if(dist(newx,newy,width/2,height/2)<2*rad){
-                    ready = false
-                }
-            }while(ready == false)
+        for(let j = 0; j<10; j++){
+            let newx = random(rad,width-rad)
+            let newy = random(rad,height-rad)
             bricks.push(new shape(newx,newy,rad,i,"", color(random(0,255),random(0,255),random(0,255))))
         }
     }
-    for(let i = 0; i < 5; i++){balls.push(new ball(width/2, height/2,random(0,360)))}
+    for(let i = 0; i < 2; i++){balls.push(new ball(width/2, height/2,random(0,360)))}
 }
 
 function generateBorder(){
