@@ -19,7 +19,6 @@ class brick {
         fill(this.color)
         rect(this.x,this.y,this.width,this.height)
         textAlign(CENTER,CENTER)
-        textSize(32)
         fill("black")
         text(this.hits,this.x,this.y)
     }

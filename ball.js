@@ -22,7 +22,7 @@ class ball {
     }
 
     draw(){
-        fill(255);
+        fill("lightgreen");
         circle(this.x,this.y,this.radius*2);
     }
     wallCollision(other){

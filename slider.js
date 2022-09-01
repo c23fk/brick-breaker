@@ -5,7 +5,8 @@ class slider{
     this.height = 50,
     this.length = width/7.5,
     this.edges = []
-    this.color = "orange"
+    this.color = "green"
+    this.lives = 3
     }
 
     input(){
@@ -51,7 +52,11 @@ class slider{
                 vertex(i.x1,i.y1);
             }
         endShape(CLOSE);
-        
+        fill(0)
+        rectMode(CENTER);
+        textSize(32);
+        text(this.lives, this.x, this.y)
+    
     }
 
     
