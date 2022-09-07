@@ -88,6 +88,7 @@ function angleify(angle){
 function LineCircleCollision(x1,y1,x2,y2,cx,cy,r){
     if(dist(x1,y1,cx,cy)<r || dist(x2,y2,cx,cy)<r){ return true; }
     let len = dist(x1,y1,x2,y2);
+    if(dist(x1,y1,cx,cy)>len+r || dist(x2,y2,cx,cy)>len+r){return false}
     let dot = (((cx-x1) * (x2-x1)) + ((cy-y1) * (y2-y1)))/(len*len);
     let nearestX = x1 + (dot * (x2-x1));
     let nearestY = y1 + (dot * (y2-y1));

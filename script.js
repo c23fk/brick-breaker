@@ -41,7 +41,7 @@ function draw(){
     }
     if(won){
         noStroke()
-        fill("lightgreen")
+        fill("white")
         text("Congratulations!!!\nReload to play again\nClick to change shapes", width/2,height/2)
     }
 }
@@ -103,7 +103,7 @@ function win(){
             bricks.push(new shape(newx,newy,rad,i,"", color(random(0,255),random(0,255),random(0,255))))
         }
     }
-    for(let i = 0; i < 2; i++){balls.push(new ball(width/2, height/2,random(0,360)))}
+    for(let i = 0; i < 3; i++){balls.push(new ball(width/2, height/2,random(0,360)))}
 }
 
 function generateBorder(){
